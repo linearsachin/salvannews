@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'news',
     'django_extensions',
     'django_heroku',
+    'bitly_api'
 ]
 
 MIDDLEWARE = [
