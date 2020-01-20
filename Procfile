@@ -1,1 +1,1 @@
-'web: gunicorn salvannews.wsgi --log-file -' 
+web: gunicorn salvannews.wsgi --log-file -
