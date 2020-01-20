@@ -1,11 +1,10 @@
 import requests 
 from bs4 import BeautifulSoup 
 import csv 
-import bitly_api
 from django.core.management.base import BaseCommand
 from news.models import Category, NewsData
 from salvannews.settings import MY_ACCESS_TOKEN
-
+from bitly_api import bitly_api
 
 
 class Command(BaseCommand):
