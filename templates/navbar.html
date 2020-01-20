@@ -1,0 +1,18 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light navy blue  scrolling-navbar">
+    <div class="container" >
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="/">
+          <strong style="color :whitesmoke;">NEWS</strong>
+        </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          {% for name,value in category %} 
+          <li class="nav-item  rgba-light-blue-strong"><a href="{% url 'display-news' category=name %}" class="nav-link rgba-light-blue-strong" style="color: white;">{{value}}</a></li>
+          {% endfor %}   
+      
+        </ul>
+      </div>
+    </div>
+
+
+</nav>
