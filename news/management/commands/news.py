@@ -4,7 +4,7 @@ import csv
 from django.core.management.base import BaseCommand
 from news.models import Category, NewsData
 from salvannews.settings import MY_ACCESS_TOKEN
-from bitly_api import bitly_api
+
 
 
 class Command(BaseCommand):
@@ -26,7 +26,7 @@ class Command(BaseCommand):
             n=0
             for single_news in allNews:
                 n+=1
-                
+                 
                 title = single_news.find(class_="DY5T1d").text
         
                 atag = single_news.find('a')
@@ -35,8 +35,10 @@ class Command(BaseCommand):
             
                 # print(link)
                 image_tag=  single_news.find(class_="tvs3Id QwxBBf")
-                
-                image = image_tag['src']
+                if image_tag is not None:
+                    image = image_tag['src']
+                else:
+                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Google_News_icon.svg/768px-Google_News_icon.svg.png"
             
             
                 website= single_news.find(class_="wEwyrc AVN2gc uQIVzc Sksgp").text
@@ -44,12 +46,13 @@ class Command(BaseCommand):
 
                 time_tag=  single_news.find(class_="WW6dff uQIVzc Sksgp")
                 time= time_tag['datetime']
-                b = bitly_api.Connection(access_token = MY_ACCESS_TOKEN) 
+                
                
                 news_for_you['news'+str(n)]= {
                     'title':title,
-                    'link':b.shorten(link)['url'] ,
-                    'image':b.shorten(image)['url'],
+                    
+                    'link':link ,
+                    'image':image,
                     'website':website, 
                     'time':time,
                     }

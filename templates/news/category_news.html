@@ -17,7 +17,7 @@
                     <div class="view overlay" style="max-height:20em ;overflow: hidden">
                       <img src="{{news.image}}" class="card-img-top"
                         alt="">
-                      <a href="">
+                      <a href="{{news.link}}" target="_blank">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                     </div>
@@ -25,7 +25,7 @@
       
                     <!--Card content-->
                     <div class="card-body text-left" style="max-height:15em ;overflow: hidden">
-                      <div class="text-muted" ><small>{{news.get_time_diff}} {% if news.get_time_diff < 2 %}hr {% else %}hrs{% endif %} ago</small></div>
+                      <div class="text-muted" ><small>{{news.get_time_diff}} {% if news.get_time_diff < 2 %}hour {% else %}hours{% endif %} ago</small></div>
                     
                       <h6>
                         <strong>

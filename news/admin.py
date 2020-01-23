@@ -7,7 +7,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title','category')
     list_filter = (
         
-        'category','website',
+        'category','time','website',
     )
 
 

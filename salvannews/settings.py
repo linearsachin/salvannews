@@ -31,9 +31,9 @@ SECRET_KEY = os.environ['SECRET_KEY']
 MY_ACCESS_TOKEN = os.environ['MY_ACCESS_TOKEN']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['salvannews.herokuapp.com']
 
 
 # Application definition
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'news',
     'django_extensions',
     'django_heroku',
-    'bitly_api'
+    'bitly_api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

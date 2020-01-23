@@ -14,8 +14,8 @@ NEWS_CATEGORY =(
 )
 class NewsData(models.Model):
     title = models.CharField(max_length=100,blank=True, null=True)
-    link = models.URLField(max_length=255)
-    image = models.URLField(max_length=255)
+    link = models.TextField()
+    image = models.TextField()
     website = models.CharField(max_length=255,blank=True, null=True)
     time = models.DateTimeField(blank=True, null=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
