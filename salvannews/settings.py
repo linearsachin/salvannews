@@ -33,7 +33,7 @@ MY_ACCESS_TOKEN = os.environ['MY_ACCESS_TOKEN']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://salvannews.herokuapp.com/']
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
