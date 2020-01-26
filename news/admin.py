@@ -10,8 +10,18 @@ class CategoryAdmin(admin.ModelAdmin):
         'category','time','website',
     )
 
+class VisitorAdmin(admin.ModelAdmin):
+    list_display = (
+'IP',
+'visit_to')
+    list_filter = (
+       
+'IP',
+'visit_to'
+    )
+
 
 
 admin.site.register(NewsData,CategoryAdmin)
 admin.site.register(Category)
-admin.site.register(IP)
+admin.site.register(IP,VisitorAdmin)
