@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="text-align-last: center;margin:auto; padding:.5em;margin: 2em;margin-right: 0em;margin-left: 0em;  ">
+    <section class="text-center mb-4" style="margin:3em;">
+
+     <div style="align-content: center;" ><h1 style="font-size: 1.5em;"><b>{{selman.get_category_display}}</b></h1></div>
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+            {% for news in NewsData %}
+            <div class="row col-lg-2 col-md-6 mb-5" style="margin:.5em;">
+                <!--Card-->
+                
+                <div class="card" style="max-height:20em; max-width:20em ;overflow: hidden" >
+    
+                    <!--Card image-->
+                    <div class="view overlay" style="max-height:20em ;overflow: hidden">
+                      <img src="{{news.image}}" class="card-img-top"
+                        alt="">
+                      <a href="{{news.link}}" target="_blank">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <!--Card image-->
+      
+                    <!--Card content-->
+                    <div class="card-body text-left" style="max-height:15em ;overflow: hidden">
+                      <div class="text-muted" ><small>{{news.get_time_diff}} {% if news.get_time_diff < 2 %}hour {% else %}hours{% endif %} ago</small></div>
+                    
+                      <h6>
+                        <strong>
+                          <a href="{{news.link}}" class="dark-grey-text" target="_blank" >{{news.title}}
+                              <br>
+                            
+                          </a>
+                        </strong>
+                      </h6>
+                      
+                    </div>
+                    <!--Card content-->
+                    <div>
+                    <h6 class="font-weight-bold blue-text" >
+                      {% if news.website %}
+                        <blockquote>{{news.website}}</blockquote>
+                      {% endif%}
+                    </h6>
+                  </div>
+                  </div>
+                  <!--Card-->
+                  
+                  
+                  
+                </div>
+                
+              {% endfor %}
+            </div>
+    </section>
+    </div>
+    <div class="" style="margin: auto;">
+      <button class="btn btn-elegant white-text" disabled>Views: {{selman.views}} <i class="far fa-eye"></i></button>
+    </div>
+{% endblock content %}
