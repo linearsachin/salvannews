@@ -19,12 +19,25 @@ class Homeview(ListView):
 
 def category_news(request,category,*args,**kwargs):
         category_ = Category.objects.get(category=category)
-        ip = request.META.get('REMOTE_ADDR')
-        allip = IP.objects.filter(IP=ip,visit_to = category_.category )
-        if not allip.exists():
-            IP.objects.create(IP=ip,visit_to = category_.category)
-            category_.views = category_.views + 1
-            category_.save()
+        # ip = request.META.get('REMOTE_ADDR')
+
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+            allip = IP.objects.filter(IP=ip,visit_to = category_.category )
+            if not allip.exists():
+                IP.objects.create(IP=ip,visit_to = category_.category)
+                category_.views = category_.views + 1
+                category_.save()
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+            allip = IP.objects.filter(IP=ip,visit_to = category_.category )
+            if not allip.exists():
+                IP.objects.create(IP=ip,visit_to = category_.category)
+                category_.views = category_.views + 1
+                category_.save()
+
             
         news1 = NewsData.objects.filter(category=category_).order_by('-time')
 
