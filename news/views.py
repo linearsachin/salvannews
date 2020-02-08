@@ -6,7 +6,7 @@ import datetime
 
 
 class Homeview(ListView):
-    def get(self, request, *args, **kwargs):    
+    def get(self, request, *args, **kwargs): 
         news1 = NewsData.objects.all().order_by('-time')  
         news =  delete_news_after_30(news1)
         context={
