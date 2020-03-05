@@ -41,7 +41,7 @@ def category_news(request,category,*args,**kwargs):
             
         news1 = NewsData.objects.filter(category=category_).order_by('-time')
 
-        news = delete_news_after_30(news1)
+        news = delete_news_after_60(news1)
         
         context = {
 
