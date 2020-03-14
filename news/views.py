@@ -8,7 +8,7 @@ import datetime
 class Homeview(ListView):
     def get(self, request, *args, **kwargs): 
         news1 = NewsData.objects.all().order_by('-time')  
-        news =  delete_news_after_60(news1)
+        news =  delete_news_after_100(news1)
         context={
             'NewsData':news,
             'category':NEWS_CATEGORY,
@@ -41,7 +41,7 @@ def category_news(request,category,*args,**kwargs):
             
         news1 = NewsData.objects.filter(category=category_).order_by('-time')
 
-        news = delete_news_after_60(news1)
+        news = delete_news_after_100(news1)
         
         context = {
 
@@ -53,9 +53,9 @@ def category_news(request,category,*args,**kwargs):
    
         return render(request,'news/category_news.html',context)
 
-def delete_news_after_60(news):
+def delete_news_after_100(news):
     for news_ in news:
-        if news_.get_time_diff() > 60:
+        if news_.get_time_diff() > 100:
             news_.delete()
         
     return news
