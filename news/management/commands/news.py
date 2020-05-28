@@ -3,7 +3,11 @@ from bs4 import BeautifulSoup
 import csv 
 from django.core.management.base import BaseCommand
 from news.models import Category, NewsData
+<<<<<<< HEAD
 
+=======
+from salvannews.settings import MY_ACCESS_TOKEN
+>>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
 
 
 
@@ -21,7 +25,11 @@ class Command(BaseCommand):
             r = requests.get(URL,headers=headers) 
             soup = BeautifulSoup(r.content, 'html.parser')
 
+<<<<<<< HEAD
             allNews = soup.find_all(class_="xrnccd F6Welf R7GTQ keNKEd j7vNaf", limit=10)
+=======
+            allNews = soup.find_all(class_="xrnccd F6Welf R7GTQ keNKEd j7vNaf", limit=7)
+>>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
             news_for_you={}
             n=0
             for single_news in allNews:
@@ -86,6 +94,7 @@ class Command(BaseCommand):
                 website=news1['website']
                 time=news1['time']
                 NewsData.objects.get_or_create(
+<<<<<<< HEAD
                    title=title,
                     website=website,
                     category=category,
@@ -98,6 +107,16 @@ class Command(BaseCommand):
                 newss.link=link
                 newss.image=image
                 newss.save()
+=======
+                    title=title,
+                    link=link,
+                    image=image,
+                    website=website,
+                    category=category,
+                    time=time
+                )
+                
+>>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
             
 
 
