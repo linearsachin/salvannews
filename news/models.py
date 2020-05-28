@@ -13,11 +13,8 @@ NEWS_CATEGORY =(
     ('H',"Health"),#https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR3QwTlRFU0FtVnVLQUFQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen   
 )
 class NewsData(models.Model):
-<<<<<<< HEAD
     title = models.CharField(max_length=255,blank=True, null=True)
-=======
     title = models.CharField(max_length=100,blank=True, null=True)
->>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
     link = models.TextField()
     image = models.TextField()
     website = models.CharField(max_length=255,blank=True, null=True)
@@ -35,15 +32,12 @@ class NewsData(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=2,choices=NEWS_CATEGORY,default="W")
     url = models.URLField()
-<<<<<<< HEAD
     views = models.IntegerField(default=0)
-=======
->>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
+
 
     def __str__(self):
         return self.category
 
-<<<<<<< HEAD
 class IP(models.Model):
     IP = models.GenericIPAddressField()
     visit_to = models.CharField(max_length=3,choices=NEWS_CATEGORY,default="W")
@@ -51,7 +45,4 @@ class IP(models.Model):
     def __str__(self):
         return self.IP
 
-
-=======
->>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
     

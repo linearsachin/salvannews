@@ -4,7 +4,4 @@
 __pycache__/
 local_settings.py
 .env
-<<<<<<< HEAD
 env
-=======
->>>>>>> 268cc11f3259bf84d8428935cd9653ecf7c8c766
