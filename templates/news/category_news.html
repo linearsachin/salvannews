@@ -29,10 +29,11 @@
                     
                       <h6>
                         <strong>
+                        <p data-toggle="tooltip" data-placement="top" title='{{news.title}}'>
                           <a href="{{news.link}}" class="dark-grey-text" target="_blank" >{{news.title}}
                               <br>
-                            
                           </a>
+                        </p>
                         </strong>
                       </h6>
                       
@@ -59,4 +60,12 @@
     <div class="" style="margin: auto;">
       <button class="btn btn-elegant white-text" disabled>Views: {{selman.views}} <i class="far fa-eye"></i></button>
     </div>
+
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
 {% endblock content %}

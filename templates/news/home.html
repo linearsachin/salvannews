@@ -7,14 +7,6 @@
 <div style="text-align-last: center;margin:auto; padding:.5em;margin: 2em;margin-right: 0em;margin-left: 0em;  ">
 <section class="text-center mb-4" style="margin:3em;">        
 
-    <!-- <div class="card" style="text-align-last: center;margin:auto;max-height:20em; max-width:30em;padding:1em ;overflow: hidden" >
-      <h5>Enter your email to get notified for new news</h5>
-      <input type="email" value="" placeholder="Email">
-      <button type="submit" class="btn btn-blue">Submit</button>
-
-
-    </div> -->
-    <!--Grid row-->
     <div class="row wow fadeIn">
 
         {% for news in NewsData %}
@@ -39,10 +31,13 @@
                 
                   <h6>
                     <strong>
+                    <p data-toggle="tooltip" data-placement="top" title='{{news.title}}'>
                       <a href="{{news.link}}" class="dark-grey-text" target="_blank" >{{news.title}}
-                          <br>
-                        
+                          <br> 
                       </a>
+                    </p>
+                
+
                     </strong>
                   </h6>
                   
@@ -66,4 +61,11 @@
         </div>
 </section>
 </div>
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
 {% endblock content %}
