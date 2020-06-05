@@ -3,6 +3,7 @@ from django.views.generic import CreateView,View,ListView,UpdateView,TemplateVie
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import NewsData,Category,NEWS_CATEGORY,IP
 import datetime
+import csv
 
 
 class Homeview(ListView):
@@ -15,6 +16,28 @@ class Homeview(ListView):
             'my': "W"
         }
         return render(request,'news/home.html',context)
+
+def export_news_csv(self,*args,**kwargs):
+    '''
+    exports data into CSV 
+    '''
+            
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="news.csv"'
+    writer = csv.writer(response)
+
+    try:
+        news  = NewsData.objects.all()
+        tag = ['Title','Website','Category']
+        writer.writerow(tag)
+
+        for news_ in news:
+            absentees = [news_.title,news_.website,news_.category.category]
+            writer.writerow(absentees)
+
+        return response
+    except:
+        return redirect("home")
 
 
 def category_news(request,category,*args,**kwargs):
@@ -60,3 +83,4 @@ def delete_news_after_100(news):
     return news
 
     
+
